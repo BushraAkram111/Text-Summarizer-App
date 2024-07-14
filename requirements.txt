@@ -1,4 +1,2 @@
 streamlit==1.35.0
 sumy
-nltk==3.8.1
-git+https://<GITHUB_ACCESS_TOKEN>:x-oauth-basic@github.com/BushraAkram111/sumy.git@main
