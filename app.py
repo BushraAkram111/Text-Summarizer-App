@@ -1,7 +1,16 @@
 import streamlit as st
+import nltk
+from nltk.data import find
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.text_rank import TextRankSummarizer
+
+# Download the NLTK 'punkt' tokenizer if not already present
+try:
+    find('tokenizers/punkt')
+except LookupError:
+    st.write("Downloading NLTK 'punkt' tokenizer...")
+    nltk.download('punkt')
 
 # Streamlit App Title
 st.title('Text Summarizer App')
