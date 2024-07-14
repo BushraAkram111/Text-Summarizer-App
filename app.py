@@ -1,13 +1,12 @@
 import streamlit as st
 import nltk
-from nltk.data import find
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.text_rank import TextRankSummarizer
 
 # Ensure NLTK 'punkt' tokenizer is downloaded
 try:
-    find('tokenizers/punkt')
+    nltk.data.find('tokenizers/punkt')
 except LookupError:
     st.write("Downloading NLTK 'punkt' tokenizer...")
     nltk.download('punkt')
