@@ -1,2 +1,3 @@
 streamlit==1.13.0
-sumy==0.11.0
+sumy==0.8.9
+
