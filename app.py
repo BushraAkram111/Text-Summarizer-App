@@ -2,6 +2,10 @@ import streamlit as st
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.text_rank import TextRankSummarizer
+import nltk
+
+# Download the punkt tokenizer if not already downloaded
+nltk.download('punkt')
 
 # Streamlit App Title
 st.title('Text Summarizer App')
