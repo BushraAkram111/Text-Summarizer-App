@@ -1,5 +1,16 @@
 import streamlit as st
-from transformers import pipeline
+import sumy
+import gensim
+import scipy
+
+st.write(f"sumy version: {sumy.__version__}")
+st.write(f"gensim version: {gensim.__version__}")
+st.write(f"scipy version: {scipy.__version__}")
+
+# Your existing imports and code
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.text_rank import TextRankSummarizer
 
 # Streamlit App Title
 st.title('Text Summarizer App')
@@ -12,9 +23,10 @@ text_input = st.text_area('Text', '')
 if st.button('Summarize'):
     if text_input:
         try:
-            summarizer = pipeline("summarization")
-            summary = summarizer(text_input, max_length=150, min_length=30, do_sample=False)
-            summary_text = summary[0]['summary_text']
+            parser = PlaintextParser.from_string(text_input, Tokenizer('english'))
+            summarizer = TextRankSummarizer()
+            summary = summarizer(parser.document, 2)  # Number of sentences in summary
+            summary_text = ' '.join([str(sentence) for sentence in summary])
             if summary_text:
                 st.subheader('Summary:')
                 st.write(summary_text)
