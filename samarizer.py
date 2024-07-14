@@ -1,9 +1,3 @@
-import subprocess
-import sys
-
-# Install the fixed version of sumy
-subprocess.check_call([sys.executable, "-m", "pip", "install", "git+https://github.com/your_username/sumy.git@fixed-branch"])
-
 import streamlit as st
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
