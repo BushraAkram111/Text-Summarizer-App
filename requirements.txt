@@ -1,4 +1,3 @@
 streamlit==1.35.0
-git+https://github.com/BushraAkram111/sumy.git@main
-
+sumy==0.9.0
 
